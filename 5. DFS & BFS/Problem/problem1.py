@@ -19,6 +19,8 @@ for i in range(n):
     graph.append(list(map(int, input())))
 
 print(graph)
+
+# 특정 노드에서 상하좌우를 살펴 값이 0인 묶음을 찾는 함수
 def dfs(x, y):
     if x <= -1 or x >= n or y <= -1 or y >= m:
         return False
@@ -36,11 +38,13 @@ def dfs(x, y):
 
 
 
-result = 0
-for i in range(n):
-    for j in range(m):
+result = 0 # 아이스크림 개수
+
+for i in range(n): # 행
+    for j in range(m): # 열
+        # 만약 해당 위치에서 dfs 수행 후 True 반환되면, 아이스크림 개수 +1
         if dfs(i, j) == True:
             result += 1
             
-            
+# 최종 아이스크림 개수 출력
 print(result)
